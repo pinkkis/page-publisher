@@ -15,7 +15,7 @@ COPY LICENSE README.md entrypoint.sh ./
 RUN apk update && \
     apk upgrade && \
     apk add git && \
-    chmod +x /entrypoint.sh
+    chmod +x ./entrypoint.sh
 
 COPY package*.json ./
 RUN npm install
@@ -23,4 +23,4 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]

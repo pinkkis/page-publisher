@@ -19,7 +19,7 @@ cd "${GITHUB_WORKSPACE}" || exit 1
 git submodule update --init --recursive
 
 rm -rf .git
-cd public
+cd dist
 
 if [ -z "${CNAME}" ]; then
     echo "${GITHUB_ACTOR}.github.io" > CNAME

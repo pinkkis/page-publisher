@@ -17,10 +17,4 @@ RUN apk update && \
     apk add git && \
     chmod +x ./entrypoint.sh
 
-COPY package*.json .
-RUN npm install
-
-COPY . .
-RUN npm run build
-
 ENTRYPOINT ["entrypoint.sh"]

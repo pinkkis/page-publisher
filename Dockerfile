@@ -12,9 +12,9 @@ WORKDIR /app
 
 COPY LICENSE README.md entrypoint.sh ./
 
-RUN apt-get -y update && \
-    apt-get -y install git && \
-    apt-get clean && \
+RUN apk update && \
+    apk upgrade && \
+    apk add git && \
     chmod +x /entrypoint.sh
 
 COPY package*.json ./

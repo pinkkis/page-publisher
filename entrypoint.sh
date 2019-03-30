@@ -15,6 +15,7 @@ cd "${GITHUB_WORKSPACE}" || exit 1
 git submodule update --init --recursive
 
 rm -rf .git
+npm i && npm run build
 cd dist
 
 if [ -z "${CNAME}" ]; then

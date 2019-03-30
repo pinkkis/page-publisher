@@ -14,7 +14,7 @@ COPY LICENSE README.md entrypoint.sh ./
 
 RUN apt-get -y update && \
     apt-get -y install git && \
-    apt-get clean
+    apt-get clean && \
     chmod +x /entrypoint.sh
 
 COPY package*.json ./

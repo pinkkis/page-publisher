@@ -8,13 +8,11 @@ LABEL "com.github.actions.description"="Publish your static site to your gh-page
 LABEL "com.github.actions.icon"="book-open"
 LABEL "com.github.actions.color"="blue"
 
-WORKDIR /app
-
-COPY LICENSE README.md entrypoint.sh ./
+COPY entrypoint.sh /
 
 RUN apk update && \
     apk upgrade && \
     apk add git && \
-    chmod +x ./entrypoint.sh
+    chmod +x /entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

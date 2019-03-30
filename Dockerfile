@@ -18,7 +18,7 @@ RUN apt-get -y update && \
     chmod +x /entrypoint.sh
 
 COPY package*.json ./
-RUN npm install --prod
+RUN npm install
 
 COPY . .
 RUN npm run build

@@ -19,7 +19,7 @@ npm i && npm run build
 cd dist
 
 if [ -z "${CNAME}" ]; then
-    echo "${GITHUB_ACTOR}.github.io" > CNAME
+    echo "No CNAME present"
 else
     echo ${CNAME} > CNAME
 fi

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 REF=$1
 if [ -z $1 ]; then
     REF='master'

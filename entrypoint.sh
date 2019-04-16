@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e
+set -o pipefail
 
 REF=$1
 if [ -z $1 ]; then
@@ -15,8 +18,17 @@ cd "${GITHUB_WORKSPACE}" || exit 1
 git submodule update --init --recursive
 
 rm -rf .git
-npm i && npm run build
+
+if [ -e "yarn.lock" ]; then
+  echo "Installing and building using Yarn."
+  yarn install && yarn run build
+else
+  echo "Installing and building using NPM."
+  npm install && npm run build
+fi
+
 cd dist
+touch .nojekyll
 
 if [ -z "${CNAME}" ]; then
     echo "No CNAME present"
@@ -25,8 +37,10 @@ else
 fi
 
 git init
-git config user.name "${GITHUB_ACTOR}"
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git add .
-git commit -m 'Auto Published From Action'
+git config user.name "${GITHUB_ACTOR}" && git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git add . && git commit -m 'Deployed From Action For $GITHUB_SHA"'
 git push --force $REMOTE_REPO master:$REF
+rm -rf .git
+cd..
+
+echo "Done."

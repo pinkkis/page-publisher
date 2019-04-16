@@ -29,4 +29,4 @@ git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git add .
 git commit -m 'Auto Published From Action'
-git push --force $REMOTE_REPO master:$REF
+git push $REMOTE_REPO master:$REF

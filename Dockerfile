@@ -12,7 +12,7 @@ COPY entrypoint.sh /
 
 RUN apk update && \
     apk upgrade && \
-    apk add bash ca-certificates git && \
+    apk add ca-certificates git && \
     chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

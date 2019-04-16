@@ -1,7 +1,4 @@
-#!/bin/bash
-
-set -e
-set -o pipefail
+#!/bin/sh
 
 REF=$1
 if [ -z $1 ]; then

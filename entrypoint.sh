@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 REF=$1
 if [ -z $1 ]; then
     REF='master'
@@ -38,6 +40,6 @@ git config user.name "${GITHUB_ACTOR}" && git config user.email "${GITHUB_ACTOR}
 git add . && git commit -m 'Deployed From Action For $GITHUB_SHA"'
 git push --force $REMOTE_REPO master:$REF
 rm -rf .git
-cd..
+cd $GITHUB_WORKSPACE
 
 echo "Done."

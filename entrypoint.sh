@@ -17,6 +17,7 @@ git submodule update --init --recursive
 rm -rf .git
 npm i && npm run build
 cd dist
+touch .nojekyll
 
 if [ -z "${CNAME}" ]; then
     echo "No CNAME present"

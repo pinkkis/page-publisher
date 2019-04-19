@@ -35,7 +35,7 @@ fi
 
 git init
 git config user.name "${GITHUB_ACTOR}" && git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git add . && git commit -m 'Deployed From Action For $GITHUB_SHA'
+git add . && git commit -m 'Deployed From Action'
 git push --force $REMOTE_REPO master:$REF
 rm -rf .git
 cd "${GITHUB_WORKSPACE}"
